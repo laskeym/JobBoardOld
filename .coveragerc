@@ -1,0 +1,3 @@
+[run]
+source = job_search
+omit = job_search/test*
