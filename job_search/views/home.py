@@ -1,8 +1,9 @@
 from pyramid.view import view_config
 
-import time
+import itertools
+from multiprocessing.dummy import Pool as ThreadPool
 
-from job_search.crawlers.crawlers import DiceCrawler
+from job_search.crawlers import crawler
 
 @view_config(route_name='home', renderer='../templates/home.mako')
 def index(request):
@@ -10,18 +11,22 @@ def index(request):
 
 @view_config(route_name='job_search', renderer='json')
 def job_search(request):
+    sites = request.GET.getall("sites[]")
+
     params = {
         'q': request.params['q'],
         'l': request.params['l']
     }
 
-    start = time.time()
+    search = [list(t) for t in zip(sites, itertools.repeat(params))]
 
-    dice = DiceCrawler(params)
-    dice.start()
-    job_listing = dice.crawl()
+    pool = ThreadPool(4)
+    urls = pool.starmap(crawler.get_urls, search)
+    urls = list(itertools.chain.from_iterable(urls))
 
-    print('*'*75)
-    print('It took ', time.time()-start, ' seconds')
+    job_results = pool.map(crawler.parse, urls)
 
-    return {'job_listing': job_listing['jobs']}
+    pool.terminate()
+    pool.join()
+
+    return {'job_results': job_results}

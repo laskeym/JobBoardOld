@@ -17,11 +17,69 @@ body.loading {
     overflow:  hidden;
 }
 
+.navbar {
+    margin-bottom:  0;
+    font-family: 'Oswald', sans-serif;
+    text-transform:  uppercase;
+}
+
+#nav_links {
+    margin-right:  200px;
+}
+
+.base_heading {
+    font-size:  18pt;
+    font-family: 'Oswald', sans-serif;
+}
+
+.base_parag {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.job_heading {
+    font-family: 'Oswald', sans-serif;
+    text-transform:  uppercase;
+}
+
+.info {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.checkboxes {
+    margin-top:  10px;
+}
+
+#search_fluid {
+    /* background:  url('https://static.pexels.com/photos/466685/pexels-photo-466685.jpeg') no-repeat center center fixed; */
+    background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('https://static.pexels.com/photos/466685/pexels-photo-466685.jpeg');
+    background-repeat:  no-repeat;
+    background-attachment:  fixed;
+    background-position:  center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size:  cover;
+    color:  white;
+    height:  500px;
+    display:  flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+
+.test {
+    display: none;
+}
+
 .scrollbar
 {
-    display: none;
     float: left;
-    height: 300px;
+    height: 600px;
     overflow-y: scroll;
     margin:  35px 0px;
     padding:  0;
@@ -34,7 +92,7 @@ body.loading {
 
 .force-overflow
 {
-    min-height: 450px;
+    min-height: 750px;
 }
 
 /*
@@ -62,9 +120,7 @@ body.loading {
 /*-----RESULTS-----*/
 .results_list {
     list-style:  none;
-    font-family:  'Lato', sans-serif;
-    /* min-height:  500px; */
-    /* overflow-y:  auto; */
+    padding: 0;
 }
 
 .results_list > li {
@@ -74,12 +130,12 @@ body.loading {
     margin:  0;
 }
 
-.results_list > li:last-child {
-    border-bottom:  1px solid #d3d3d3;
+.results_list > li:first-child {
+    border-top:  none;
 }
 
-.results_list > li > .job_details > .wrap > .job_title > a {
-        font-size: 12pt;
+.results_list > li > .job_details > .wrap > .base_heading > a {
+        font-size: 16pt;
         margin: 0;
         display: block;
         white-space:  nowrap;

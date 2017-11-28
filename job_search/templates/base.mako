@@ -8,6 +8,9 @@
     <meta name="author" content="Pylons Project">
     <link rel="shortcut icon" href="${request.static_url('job_search:static/pyramid-16x16.png')}">
 
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald:600" rel="stylesheet">
+
     <title>Job Board</title>
 
     <!-- Bootstrap core CSS -->
@@ -28,10 +31,28 @@
   <body>
 
     <div class="starter-template">
-      <div class="container">
+            <nav class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">Job Board</a>
+                </div>
+                <!-- Collection of nav links and other content for toggling -->
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right" id="nav_links">
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
             ${ next.body() }
             <div class="ajax-overlay"></div>
-      </div>
     </div>
 
 
