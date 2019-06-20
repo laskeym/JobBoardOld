@@ -41,12 +41,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#" class="navbar-brand">Job Board</a>
+                    <a href="${request.route_url('home')}" class="navbar-brand">Job Board</a>
                 </div>
                 <!-- Collection of nav links and other content for toggling -->
                 <div id="navbarCollapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right" id="nav_links">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="${request.route_url('home')}">Home</a></li>
                     </ul>
                 </div>
             </div>
